@@ -15,6 +15,19 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Reservation {
+
+    // Reservation/Contrat
+    @OneToOne(fetch = FetchType.LAZY)
+    Contrat contrat;
+
+    // Reservation/Client
+    @ManyToOne
+    Client client;
+
+    // Reservation/Vehicule
+    @ManyToOne
+    Vehicule vehicule;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idReservation;

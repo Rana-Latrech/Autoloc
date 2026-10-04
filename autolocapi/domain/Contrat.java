@@ -8,6 +8,9 @@ import lombok.Setter;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name = "contrat")
 @Getter
@@ -16,6 +19,12 @@ import java.time.LocalDate;
 @AllArgsConstructor
 
 public class Contrat {
+    //Reservation/Contrat
+    @OneToOne (mappedBy = "contrat")
+    Reservation reservation;
+    //Contart/Paiement
+    @OneToMany(mappedBy = "contrat" , cascade = CascadeType.ALL , orphanRemoval = true)
+    List<Paiement> paiements = new ArrayList<>();
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idContrat;

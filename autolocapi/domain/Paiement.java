@@ -15,6 +15,9 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Paiement {
+    //Paiement/ contrat
+    @ManyToOne
+    Contrat contrat;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idPaiement;

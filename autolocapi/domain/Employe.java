@@ -13,6 +13,9 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Employe {
+    //Agence/Employe
+    @ManyToOne
+    Agence agence;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idEmploye;
